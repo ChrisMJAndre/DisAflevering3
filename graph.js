@@ -1,3 +1,5 @@
+//Test of github
+
 const { Edge } = require('js-graph-algorithms');
 var jsgraphs = require('js-graph-algorithms');
 
