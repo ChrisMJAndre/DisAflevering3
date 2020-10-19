@@ -42,7 +42,7 @@ class Router{
                     // 5. decrement the packets ttl.
                     packet.ttl = packet.ttl - 1;
                     // 6. Add an extra field to routeTo named ttl with same value as the packet's ttl.
-                    
+
                     // remember the object notation of objects in javascript.
                     }       
                     // 7. Finish the if statement.
