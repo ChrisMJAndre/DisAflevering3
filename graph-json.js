@@ -56,14 +56,12 @@ for (let i = 0; i < data.routers.length; i++) {
 // and again implement the shortest path function.
 
 const shortestPath = (graph, from, to) => {
-  let sp = [];
   // write the functionality here. Remember to look at the documentation!
   var dijkstra = new jsgraphs.Dijkstra(graph, from);
   if (dijkstra.hasPathTo(to)) {
     return dijkstra.pathTo(to).map((edge) => edge.to());
   } else return console.log("path does not exist!");
   // return the shortest path as an array
-  return console.log(sp);
 };
 console.log("\n" + "Shortest path is: ");
 console.log(shortestPath(g, 0, 3));
