@@ -15,8 +15,9 @@ const multipleRouters = () => {
    
     data.routers.forEach(router => {
         // initialize router
-
+        let r = new Router(router.router, router.connections);
         // add to array
+        routers.push(r)
     })
 
     /**

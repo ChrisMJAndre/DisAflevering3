@@ -22,11 +22,14 @@ class Router{
                     // you need to write your code here.
 
                     // decipher buffer data. Hint: look into JSON.parse();
-
+                    data = JSON.parse(data);
                     // if path empty, we have reached the destination
                     if(data.path.length == 0) {
                         // do something
+                        res.end(JSON.stringify(data));
                     } else {
+                        let forwardTo = data.path.shift();
+                        self.forwardPacket(forwardTo,data);
                         // we should forward the packet.
                         // Hint. You can use the shift method on an array to get first element
                         // use the forwardPacket method
