@@ -35,13 +35,14 @@ class Router{
                     // 4. Get which router to forwardTo. 
                     // Hint: there's a method in packet, that gets the next router.
                     // Hint: should be an int.
-                    let forwardTo = packet.forwardPacket(to); /* = packet.somemethod() */
+                    let forwardTo = packet.popShortestPath(); /* = packet.somemethod() */
                     // get the connection object (routeTo). 
                     // consists of a "to" and a "cost".
                     let routeTo = self.getRouteTo(forwardTo);
                     // 5. decrement the packets ttl.
-
+                    packet.ttl = packet.ttl - 1;
                     // 6. Add an extra field to routeTo named ttl with same value as the packet's ttl.
+                    
                     // remember the object notation of objects in javascript.
                     }       
                     // 7. Finish the if statement.
