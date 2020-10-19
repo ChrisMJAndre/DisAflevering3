@@ -3,6 +3,7 @@ const seaport = require('seaport');
 const ports = seaport.connect('localhost', 9090);
 const fetch = require('node-fetch');
 const Packet = require('./packet');
+const { setFlagsFromString } = require('v8');
 
 class Router{
     constructor(name, connections) {
@@ -19,21 +20,22 @@ class Router{
             // listener when reading data stream is done. 
             req.on('end', () => {
                 if(data.length > 0) {
+                   
                     //1. decipher data. hint: JSON.parse()
-
+                    data.JSON.parse(data);
                     //2. reconstructing packet from data
-                    let packet = new Packet(/* something here */)
+                    let packet = new Packet(data);
                     
-                    // console.log("Packet " + packet.id + " received at router " + self.name);
+                    console.log("Packet " + packet.id + " received at router " + self.name);
                     if(packet.destination == self.name) {
                         // 3. What to do if packet has reached destination? 
                         // We should end.
-                    }
-
+                        res.end(JSON.stringify(Data));
+                    } else {
                     // 4. Get which router to forwardTo. 
                     // Hint: there's a method in packet, that gets the next router.
                     // Hint: should be an int.
-                    let forwardTo /* = packet.somemethod() */
+                    let forwardTo = packet.forwardPacket(to); /* = packet.somemethod() */
                     // get the connection object (routeTo). 
                     // consists of a "to" and a "cost".
                     let routeTo = self.getRouteTo(forwardTo);
@@ -41,7 +43,7 @@ class Router{
 
                     // 6. Add an extra field to routeTo named ttl with same value as the packet's ttl.
                     // remember the object notation of objects in javascript.
-
+                    }       
                     // 7. Finish the if statement.
                     if(/* packet ran out of ttl*/n) {
                         
