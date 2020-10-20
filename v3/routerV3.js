@@ -22,52 +22,73 @@ class Router{
                 if(data.length > 0) {
                    
                     //1. decipher data. hint: JSON.parse()
-                    data.JSON.parse(data);
+                    data = JSON.parse(data);
                     //2. reconstructing packet from data
-                    let packet = new Packet(data);
+                    let packet = new Packet(
+                        data.id,
+                        data.source,
+                        data.destination,
+                        data.ttl,
+                        data.routingHistory,
+                        data.shortestPath
+                    );
                     
-                    console.log("Packet " + packet.id + " received at router " + self.name);
+                    console.log(
+                        "\n" +
+                        "Packet " + 
+                        packet.id + 
+                        " received at router " + 
+                        self.name);
+                    
                     if(packet.destination == self.name) {
                         // 3. What to do if packet has reached destination? 
                         // We should end.
-                        res.end(JSON.stringify(Data));
-                    } else {
+                        console.log("Packet " + packet.id + " reached its destination at a cost of " + packet.getTotalCost());
+                        res.end(JSON.stringify(data));
+                        return;
+                    } 
                     // 4. Get which router to forwardTo. 
                     // Hint: there's a method in packet, that gets the next router.
                     // Hint: should be an int.
-                    let forwardTo = packet.popShortestPath(); /* = packet.somemethod() */
+                    let forwardTo = packet.popShortestPath();
                     // get the connection object (routeTo). 
                     // consists of a "to" and a "cost".
                     let routeTo = self.getRouteTo(forwardTo);
                     // 5. decrement the packets ttl.
                     packet.ttl = packet.ttl - 1;
                     // 6. Add an extra field to routeTo named ttl with same value as the packet's ttl.
-
+                    routeTo.ttl = packet.ttl;
                     // remember the object notation of objects in javascript.
-                    }       
+                           
                     // 7. Finish the if statement.
-                    if(/* packet ran out of ttl*/n) {
-                        
+                    if(packet.ttl == 0) {
                         res.end(JSON.stringify({msg:"packed dropped due to ttl"}))
                         return;
                     }
-                    // console.log("Forwarding to router "+forwardTo+" and inccuring a cost of " + routeTo.cost + ". Total cost: " + packet.getTotalCost());
+                    console.log(
+                        "Total Cost: " +
+                        packet.getTotalCost() + 
+                        "\n" + 
+                        "Forwarding to router "+
+                        forwardTo +
+                        " and inccuring a cost of " + 
+                        routeTo.cost                        
+                        );
                     
                     // 8. Add the routeTo to the packet's history.
                     // hint: Look at the packet methods.
-
+                    packet.addRouteToHistory(routeTo);    
 
                     // 9. forward the packet to the forwardTo variable.
                     // again look at the packet's methods.
-
-                }
-                else {
+                    packet.forwardPacket(forwardTo);
+                } else  {
                     res.end("No data received");
                 }
-            })
+            });
             
-        })
-        this.port = ports.register("router"+this.name);
+        });
+        this.port = ports.register("router" + this.name);
         this.server.listen(this.port, function() {
             // console.log("Router " + name + " is listening on port " + this.address().port);
         });

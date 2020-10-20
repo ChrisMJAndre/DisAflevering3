@@ -47,9 +47,13 @@ const multipleRouters = () => {
      * the name can be whatever you'd like.
      */
 
-    let demoPacket = new Packet(0,0,3,10,[],[]);
+    let demoPacket = new Packet("Chris", 0, 3, 10);
     // Add the shortest path to the packet.
-    demoPacket.shortestPath = getShortestPath(graph, demoPacket.source, demoPacket.destination);
+    demoPacket.shortestPath = getShortestPath(
+        g, 
+        demoPacket.source, 
+        demoPacket.destination
+        );
 
     /**
      * Prompt is a package to prompt the user though the terminal.

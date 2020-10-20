@@ -31,13 +31,13 @@ class Packet{
     }
 
     prettyPrint() {
-        let out = "\nPacket source: router" + this.source;
-        out += "\nPacket destination: router" + this.destination;
-        out += "\nPacket reached destination and followed ";
+        let out = "\nPacket source: router: " + this.source;
+        out += "\nPacket destination: router: " + this.destination;
+        out += "\nPacket reached destination and followed: ";
         this.routingHistory.forEach(route => {
-            out += "\n\trouter"+route.to + " at cost " + route.cost + ". ttl: " + route.ttl;
+            out += "\n\trouter "+route.to + " at cost " + route.cost + ". ttl: " + route.ttl;
         }) 
-        out += "\nTotal cost of: " + this.getTotalCost();
+        out += "\n\nTotal cost of: " + this.getTotalCost() + "\n";
         console.log(out)
     }
 
