@@ -1,37 +1,28 @@
+// Importing modules
 let data = require("../data.json");
 const Router = require("./routerV3");
 const Packet = require("./packet");
 const prompt = require("prompt");
 const jsgraphs = require("js-graph-algorithms");
 
+// Assigning an empty array to the varible "routers"
 let routers = [];
 
 const multipleRouters = () => {
-  /**
-   * 1. Iterate through the data and create the routers from it
-   * as well as add it to our array.
-   */
-
-  // your code here
+  // This code iterates though the data and creates routers from it, and adds it to our array "routers"
   data.routers.forEach((router) => {
     // initialize router
     let r = new Router(router.router, router.connections);
-    // add to array
+    // add to array - push methode
     routers.push(r);
   });
 
-  /**
-   * 2. build a weighted directional graph and adds the edges
-   * between the nodes through the data.json file
-   */
+  //build a weighted directional graph and adds the edges
+  //between the nodes through the data.json file, seen below:
 
-  // your code here
-  // initliaze graph below
+  // initliaze graph below - using jsgraphs
   var g = new jsgraphs.WeightedDiGraph(4);
-  // add edges dynamically.
-  // Hint: You need a nested loop.
-  // The outer loop must iterate the routers, and the inner loop the connections.
-
+  // This nested loop is creates the edges dynamically by itterating the routers and the connections for each router
   for (let i = 0; i < data.routers.length; i++) {
     let r = data.routers[i];
     for (let x = 0; x < r.connections.length; x++) {
@@ -40,15 +31,9 @@ const multipleRouters = () => {
     }
   }
 
-  /**
-   * 3. create a new packet.
-   * create a packet with a name, a source, a destination and a ttl.
-   * the source should be 0, destination 3 and ttl > 3.
-   * the name can be whatever you'd like.
-   */
-
+  // A new packet is created with a given name, source (0), destination (3), and a time to live - longer than 3, since we know it has to rerouted atleast 3 times.
   let demoPacket = new Packet("Chris", 0, 3, 10);
-  // Add the shortest path to the packet.
+  // Shortest path is added to the packet - methode can be seen below
   demoPacket.shortestPath = getShortestPath(
     g,
     demoPacket.source,

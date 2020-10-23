@@ -21,6 +21,11 @@ class Packet {
   popShortestPath() {
     /**
      * What does shift do?
+     * Shift is a methode that removes the first element in an array and returns that removed element if desired
+     * Example: const arrayShift = [0,1,2];
+     *          const element = arrayShift.shift();
+     *          console.log(arrayShift)..........  Array [1,2]
+     *          console.log(element)......... 0
      */
     return this.shortestPath.shift();
   }
@@ -28,6 +33,7 @@ class Packet {
   getTotalCost() {
     /**
      * How does reduce work?
+     * The reduce methode reduces the array to a single value, by subtracting the numbers in the array, starting from the beginning.
      */
     return this.routingHistory.reduce((acc, route) => acc + route.cost, 0);
   }

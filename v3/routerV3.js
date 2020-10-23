@@ -1,3 +1,4 @@
+// Importing modules..
 const http = require("http");
 const seaport = require("seaport");
 const ports = seaport.connect("localhost", 9090);
@@ -21,6 +22,7 @@ class Router {
       req.on("end", () => {
         if (data.length > 0) {
           //1. decipher data. hint: JSON.parse()
+          // JSON parse takes a JSON string and converts it into a javascript object.
           data = JSON.parse(data);
           //2. reconstructing packet from data
           let packet = new Packet(
@@ -38,7 +40,7 @@ class Router {
 
           if (packet.destination == self.name) {
             // 3. What to do if packet has reached destination?
-            // We should end.
+            // We should end - res.end
             console.log(
               "Packet " +
                 packet.id +
@@ -62,6 +64,7 @@ class Router {
           // remember the object notation of objects in javascript.
 
           // 7. Finish the if statement.
+          // if the time to live of the packet is 0, we should res.end and describe why the packet dropped
           if (packet.ttl == 0) {
             res.end(JSON.stringify({ msg: "packed dropped due to ttl" }));
             return;
