@@ -42,10 +42,14 @@ Total cost of: 4
 #### Shift and Reduce methode
 
 Shift is a methode that removes the first element in an array and returns that removed element
-_ Example: const arrayShift = [0,1,2];
-_ const element = arrayShift.shift();
-_ console.log(arrayShift).......... Array [1,2]
-_ console.log(element)......... 0
+
+Example: const arrayShift = [0,1,2];
+
+const element = arrayShift.shift();
+
+console.log(arrayShift).......... Array [1,2]
+
+console.log(element)......... 0
 
 The reduce methode reduces the array to a single value, by subtracting the numbers in the array, starting from the beginning.
 
