@@ -40,6 +40,13 @@ _ console.log(element)......... 0
 
 The reduce methode reduces the array to a single value, by subtracting the numbers in the array, starting from the beginning.
 
+##### How to run the program
+
+1. Cd to v3 folder
+2. Run "npm run seaport listen 9090"
+3. Open new terminal and cd to v3
+4. Run "Node multipleRouters.js"
+
 # Exercises regarding distributed shortest path
 
 ## CAUTION
