@@ -26,28 +26,14 @@ When the packets reaches its destination the program prints the path the packet 
 EXAMPLE OF FINAL PRINT:
 
 ```
-Packet source: router0
-Packet destination: router3
+Packet source: router 0
+Packet destination: router 3
 Packet reached destination and followed
-        router1 at cost 1. ttl: 9
-        router2 at cost 1. ttl: 8
-        router3 at cost 2. ttl: 7
+        router 1 at cost 1. ttl: 9
+        router 2 at cost 1. ttl: 8
+        router 3 at cost 2. ttl: 7
 Total cost of: 4
 ```
-
-Packet source: router: 0
-
-Packet destination: router: 3
-
-Packet reached destination and followed:
-
-router 1 at cost 1. ttl: 9
-
-router 2 at cost 1. ttl: 8
-
-router 3 at cost 2. ttl: 7
-
-Total cost of: 4
 
 #### Shift and Reduce methode
 
@@ -55,13 +41,12 @@ Shift is a methode that removes the first element in an array and returns that r
 
 Example:
 
+```
 const arrayShift = [0,1,2];
-
 const element = arrayShift.shift();
-
 console.log(arrayShift).......... Array [1,2]
-
 console.log(element)......... 0
+```
 
 The reduce methode reduces the array to a single value, by subtracting the numbers in the array, starting from the beginning.
 
