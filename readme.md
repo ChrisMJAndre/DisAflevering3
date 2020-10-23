@@ -27,13 +27,10 @@ EXAMPLE OF FINAL PRINT:
 
 Packet source: router: 0
 Packet destination: router: 3
-
 Packet reached destination and followed:
 
 router 1 at cost 1. ttl: 9
-
 router 2 at cost 1. ttl: 8
-
 router 3 at cost 2. ttl: 7
 
 Total cost of: 4
