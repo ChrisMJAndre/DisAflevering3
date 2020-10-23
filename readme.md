@@ -59,6 +59,9 @@ The reduce methode reduces the array to a single value, by subtracting the numbe
 
 # Exercises regarding distributed shortest path
 
+https://ecomputernotes.com/computernetworkingnotes/routing/distributed-routing
+https://www.informit.com/articles/article.aspx?p=27267
+
 ## CAUTION
 
 When solving the following exercises we encourage you to only look at the files, that are mentioned in the specific assignment. Other folders / files e.g. v2 / v3 might contain hints or solutions.
