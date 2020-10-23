@@ -1,6 +1,6 @@
 # Comments on the program - Christopher M.J. André
 
-## DK
+## Routing Algoritme
 
 Routing algoritmen bruges til at bestemme den bedste vej (path) for en pakke.
 Tænk på routing algoritmen som en salgs trafikofficer. På samme måde som en trafikofficer vil guide bilerne igennem travle kryds/veje, bestemmer routing algoritmen hvilken path pakken skal tage fra det ene netværk til det andet - Routing algoritmen bruges til at beregne den bedste sti til at transpotere dataene fra kilden til destinationen\*\*
