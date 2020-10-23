@@ -43,7 +43,9 @@ Total cost of: 4
 
 Shift is a methode that removes the first element in an array and returns that removed element
 
-Example: const arrayShift = [0,1,2];
+Example:
+
+const arrayShift = [0,1,2];
 
 const element = arrayShift.shift();
 
