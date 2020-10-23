@@ -5,7 +5,7 @@
 Routing algoritmen bruges til at bestemme den bedste vej (path) for en pakke.
 Tænk på routing algoritmen som en salgs trafikofficer. På samme måde som en trafikofficer vil guide bilerne igennem travle kryds/veje, bestemmer routing algoritmen hvilken path pakken skal tage fra det ene netværk til det andet - Routing algoritmen bruges til at beregne den bedste sti til at transpotere dataene fra kilden til destinationen\*\*
 
-## Eng
+## English
 
 The routing algorithm is a formula stored in the routers. Routing algorithm is used in order to decide the best path for the packet.
 The routing algorithm can be compared to a traffic officer. In the same way a traffic officer guides and directs the traffic in a busy intersection, the routing algorithm finds the best possible path for the packet, from one network to another - The router uses the routing algorithm to compute the best possible path for the packet to travel from the source to the destination\*\*
