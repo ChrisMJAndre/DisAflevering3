@@ -1,5 +1,47 @@
 # Comments on the program - Christopher M.J. André
 
+## DK
+
+Routingalgoritmen er en formel, gemt i routeren. Routing algoritmen bruges til at bestemme den bedste vej (path) for pakken.
+Tænk på routingalgoritmen som en salgs trafikofficer. På samme måde som en trafikofficer vil guide bilerne igennem travle kryds/veje, bestemmer routingalgoritmen hvilken path pakken skal tage fra det ene netværk til det andet - Routingalgoritmen bruges til at beregne den bedste sti til at transpotere dataene fra kilden til destinationen\*\*
+
+## Eng
+
+The routing algorithm is a formula stored in the routers. Routing algorithm is used in order to decide the best path for the packet.
+The routing algorithm can be compared to a traffic officer. In the same way a traffic officer guides and directs the traffic in a busy intersection, the routing algorithm finds the best possible path for the packet, from one network to another - The router uses the routingalgorithm to compute the best possible path for the packet to travel from the source to the destination\*\*
+
+### How the program works..
+
+Routers and a graph of the routers are initialized in the code. The packet - demopacket "chris", is forwareded to the first router 1.
+Router 1 then deciphers the data. The program is built to check if the packet contains any data, if the packet is empty, we simple end and print (no data recived).
+Assuming the packet contains some information, the data is then reconstructed. The packet contains an array called path[], by checking if this array is empty or not, we know if we have to forward it or it has reached its destination. The methode shift() is used to remove the first element, once the packet is redirected to the next router. This process repeats itself, until the packet arrives at its destination.
+
+It might happen that the packet gets lost along the way, therefore we have included a Time To Live for the packet. Time To Live is important to make sure that the packet does not jump from router to router forever.
+
+Once the path[] array is empty, we have reached the final destination (router). The program then prints out the path the packet took, aswell as the costs (delay) along the way.
+
+EXAMPLE OF FINAL PRINT:
+Packet source: router: 0
+Packet destination: router: 3
+Packet reached destination and followed:
+router 1 at cost 1. ttl: 9
+router 2 at cost 1. ttl: 8
+router 3 at cost 2. ttl: 7
+
+Total cost of: 4
+
+#### Shift and Reduce methode
+
+Shift is a methode that removes the first element in an array and returns that removed element if desired
+_ Example: const arrayShift = [0,1,2];
+_ const element = arrayShift.shift();
+_ console.log(arrayShift).......... Array [1,2]
+_ console.log(element)......... 0
+\*/
+and looks into the array path[]
+
+The reduce methode reduces the array to a single value, by subtracting the numbers in the array, starting from the beginning.
+
 # Exercises regarding distributed shortest path
 
 ## CAUTION
