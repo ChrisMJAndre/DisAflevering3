@@ -14,18 +14,26 @@ The routing algorithm can be compared to a traffic officer. In the same way a tr
 
 Routers and a graph of the routers are initialized in the code. The packet - demopacket "chris", is forwarded to the first router "1".
 Router 1 then deciphers the data. The program is built to check if the packet contains any data, if the packet is empty, we simple end and print (no data recived).
-Assuming the packet contains some information, the data is then reconstructed. The packet contains an array which contains the path "shortestPath[1,2,3]" for the packet, by checking if packet.destiantion, 3 , is the same as the name of the router, we know if we have to forward it or it has reached its destination. The methode shift() is used to remove the first element of the array shortestPath[], once the packet is redirected to the next router. This process repeats itself, until the packet arrives at its destination.
+
+Assuming the packet contains some information, the data is then reconstructed. The packet contains an array which contains the path "shortestPath[1,2,3]" for the packet, by checking if packet.destiantion is the same as the name of the router, we know if we have to forward it or it has reached its destination.
+
+The methode shift() is used to remove the first element of the array shortestPath[], once the packet is redirected to the next router. This process repeats itself, until the packet arrives at its destination.
 
 It might happen that the packet gets lost along the way, therefore we have included a Time To Live for the packet. Time To Live is important to make sure that the packet does not jump from router to router forever.
 
 When the packets reaches its destination the program prints the path the packet took, aswell as the costs (delay) along the way.
 
 EXAMPLE OF FINAL PRINT:
+
 Packet source: router: 0
 Packet destination: router: 3
+
 Packet reached destination and followed:
+
 router 1 at cost 1. ttl: 9
+
 router 2 at cost 1. ttl: 8
+
 router 3 at cost 2. ttl: 7
 
 Total cost of: 4
